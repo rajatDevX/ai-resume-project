@@ -1,6 +1,6 @@
 # 🚀 AI Resume Interview Planner
 
-An AI-powered interview preparation platform that analyzes a candidate's resume and target job description to generate personalized interview questions, identify skill gaps, calculate job match scores, and create a customized preparation roadmap.
+An AI-powered interview preparation platform that analyzes a candidate's resume and target job description to generate personalized interview questions, identify skill gaps, calculate job match score, and create a structured preparation roadmap.
 
 ---
 
@@ -82,9 +82,7 @@ An AI-powered interview preparation platform that analyzes a candidate's resume 
 
 ### User Login
 
-```md
 ![Login Page](screenshots/login.png)
-```
 
 The login page allows existing users to securely access their interview preparation dashboard.
 
@@ -92,9 +90,7 @@ The login page allows existing users to securely access their interview preparat
 
 ### User Registration
 
-```md
 ![Register Page](screenshots/register.png)
-```
 
 New users can create an account by providing username, email, and password.
 
@@ -102,9 +98,7 @@ New users can create an account by providing username, email, and password.
 
 ### Resume & Job Description Upload
 
-```md
 ![Resume Upload](screenshots/dashboard.png)
-```
 
 Users can upload their resume and paste the target job description. The AI engine analyzes both inputs to generate a personalized interview plan.
 
@@ -112,9 +106,7 @@ Users can upload their resume and paste the target job description. The AI engin
 
 ### Technical Interview Questions
 
-```md
 ![Technical Questions](screenshots/technical-questions.png)
-```
 
 AI generates role-specific technical interview questions based on resume skills and job requirements.
 
@@ -122,9 +114,7 @@ AI generates role-specific technical interview questions based on resume skills 
 
 ### Behavioral Interview Questions
 
-```md
 ![Behavioral Questions](screenshots/behavioral-questions.png)
-```
 
 Behavioral interview questions are generated to help candidates prepare for real-world interview scenarios.
 
@@ -132,9 +122,7 @@ Behavioral interview questions are generated to help candidates prepare for real
 
 ### Personalized Preparation Roadmap
 
-```md
 ![Roadmap](screenshots/roadmap.png)
-```
 
 A customized preparation roadmap helps users focus on important topics and improve identified skill gaps.
 
