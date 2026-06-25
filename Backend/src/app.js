@@ -9,6 +9,7 @@ app.use(cookieParser());
 
 const allowedOrigins = [
   "http://localhost:5173",
+  "https://ai-resume-project-t083.onrender.com", // ← hardcode kar do
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
