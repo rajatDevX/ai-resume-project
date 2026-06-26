@@ -2,6 +2,8 @@
 
 An AI-powered interview preparation platform that analyzes a candidate's resume and target job description to generate personalized interview questions, identify skill gaps, calculate job match score, and create a structured preparation roadmap.
 
+🌐 **Live Demo:** [https://ai-resume-project-t083.onrender.com](https://ai-resume-project-t083.onrender.com)
+
 ---
 
 ## 📌 Features
@@ -55,8 +57,10 @@ An AI-powered interview preparation platform that analyzes a candidate's resume 
 ### Frontend
 
 * React.js
-* Tailwind CSS
-* React Router
+* React Router v7
+* Axios
+* SCSS / Sass
+* Vite
 
 ### Backend
 
@@ -65,16 +69,124 @@ An AI-powered interview preparation platform that analyzes a candidate's resume 
 
 ### Database
 
-* MongoDB
+* MongoDB (Atlas)
 
 ### AI Integration
 
-* OpenAI API / Gemini API
+* Google Gemini API (`gemini-1.5-flash`)
 
 ### Authentication
 
 * JWT Authentication
 * Bcrypt Password Hashing
+* HTTP-only Cookies
+
+---
+
+## 📁 Project Structure
+
+```
+ai-resume-project/
+├── Backend/
+│   ├── src/
+│   │   ├── config/         # Database config
+│   │   ├── controllers/    # Auth & Interview controllers
+│   │   ├── middlewares/    # Auth & File middlewares
+│   │   ├── models/         # Mongoose models
+│   │   ├── routes/         # API routes
+│   │   ├── services/       # Gemini AI service
+│   │   └── app.js          # Express app setup
+│   ├── .env                # Environment variables (not committed)
+│   └── server.js           # Entry point
+└── Frontend/
+    ├── src/
+    │   ├── config/         # API base URL config
+    │   ├── api/            # Axios API calls
+    │   └── ...
+    ├── .env                # Frontend env variables (not committed)
+    └── package.json
+```
+
+---
+
+## ⚙️ Local Setup
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/rajatDevX/ai-resume-project.git
+cd ai-resume-project
+```
+
+### 2. Backend Setup
+
+```bash
+cd Backend
+npm install
+```
+
+Create `Backend/.env` file:
+
+```env
+PORT=3000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+GOOGLE_GENAI_API_KEY=your_gemini_api_key
+```
+
+Start Backend:
+
+```bash
+npm run dev
+```
+
+### 3. Frontend Setup
+
+```bash
+cd Frontend
+npm install
+```
+
+Create `Frontend/.env` file:
+
+```env
+VITE_API_BASE_URL=http://localhost:3000
+```
+
+Start Frontend:
+
+```bash
+npm run dev
+```
+
+Frontend runs on `http://localhost:5173`, Backend on `http://localhost:3000`.
+
+---
+
+## 🚀 Deployment (Render)
+
+This project is deployed as a **single service** on Render — Backend serves the Frontend build.
+
+### Environment Variables (Render Dashboard)
+
+| Key | Value |
+|-----|-------|
+| `MONGO_URI` | Your MongoDB Atlas URI |
+| `JWT_SECRET` | Your JWT secret key |
+| `GOOGLE_GENAI_API_KEY` | Your Gemini API key |
+| `NODE_ENV` | `production` |
+
+### Build Command
+
+```bash
+cd Frontend && npm install --include=dev && npm run build && cd ../Backend && npm install
+```
+
+### Start Command
+
+```bash
+cd Backend && node server.js
+```
 
 ---
 
@@ -84,92 +196,34 @@ An AI-powered interview preparation platform that analyzes a candidate's resume 
 
 ![Login Page](screenshots/login.png)
 
-The login page allows existing users to securely access their interview preparation dashboard.
-
----
-
 ### User Registration
 
 ![Register Page](screenshots/register.png)
-
-New users can create an account by providing username, email, and password.
-
----
 
 ### Resume & Job Description Upload
 
 ![Resume Upload](screenshots/dashboard.png)
 
-Users can upload their resume and paste the target job description. The AI engine analyzes both inputs to generate a personalized interview plan.
-
----
-
 ### Technical Interview Questions
 
 ![Technical Questions](screenshots/technical-questions.png)
-
-AI generates role-specific technical interview questions based on resume skills and job requirements.
-
----
 
 ### Behavioral Interview Questions
 
 ![Behavioral Questions](screenshots/behavioral-questions.png)
 
-Behavioral interview questions are generated to help candidates prepare for real-world interview scenarios.
-
----
-
 ### Personalized Preparation Roadmap
 
 ![Roadmap](screenshots/roadmap.png)
-
-A customized preparation roadmap helps users focus on important topics and improve identified skill gaps.
-
----
-
-## ⚙️ Installation
-
-### Clone Repository
-
-```bash
-git clone https://github.com/yourusername/ai-resume-interview-planner.git
-```
-
-### Navigate to Project
-
-```bash
-cd ai-resume-interview-planner
-```
-
-### Install Dependencies
-
-```bash
-npm install
-```
-
-### Start Development Server
-
-```bash
-npm run dev
-```
-
-### Backend
-
-```bash
-cd server
-npm install
-npm start
-```
 
 ---
 
 ## 📂 Project Workflow
 
 1. User registers or logs in.
-2. Uploads resume or enters profile details.
+2. Uploads resume (PDF) or enters profile details.
 3. Pastes target job description.
-4. AI analyzes both inputs.
+4. AI analyzes both inputs using Gemini API.
 5. Match score is calculated.
 6. Skill gaps are identified.
 7. Technical and behavioral questions are generated.
